@@ -35,6 +35,7 @@ const SingleNews = ({ singleNews }) => {
         <div>
           <p className="text-justify">{singleNews?.details.slice(0, 280)}</p>
           <Link
+            target="_blank"
             to={`/news/${singleNews._id}`}
             className="text-base text-[#FF8C47] font-bold"
           >
