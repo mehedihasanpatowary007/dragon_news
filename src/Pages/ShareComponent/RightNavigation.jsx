@@ -3,25 +3,30 @@ import { Link } from "react-router-dom";
 import Qzone1 from '../../assets/swimming.png'
 import Qzone2 from '../../assets/class.png'
 import Qzone3 from '../../assets/playground.png'
+import { useContext } from "react";
+import { AuthInfoContext } from "../../Context/AuthInfo";
 
 
 const RightNavigation = () => {
+  const {user} = useContext(AuthInfoContext)
     return (
       <div>
         {/* log in with  */}
-        <div className="flex flex-col gap-5">
-          <h2 className="text-2xl font-bold">Login with</h2>
-          <div className="flex flex-col gap-3 items-center w-full">
-            <button className="flex gap-1 items-center justify-center border-2 border-blue-500 text-blue-500 w-full py-1 rounded-lg">
-              <FaGoogle />
-              <span>Login with Google</span>
-            </button>
-            <button className="flex gap-1 items-center justify-center border-2 border-black w-full py-1 rounded-lg">
-              <FaGithub />
-              <span>Login with github</span>
-            </button>
+        {!user && (
+          <div className="flex flex-col gap-5">
+            <h2 className="text-2xl font-bold">Login with</h2>
+            <div className="flex flex-col gap-3 items-center w-full">
+              <button className="flex gap-1 items-center justify-center border-2 border-blue-500 text-blue-500 w-full py-1 rounded-lg">
+                <FaGoogle />
+                <span>Login with Google</span>
+              </button>
+              <button className="flex gap-1 items-center justify-center border-2 border-black w-full py-1 rounded-lg">
+                <FaGithub />
+                <span>Login with github</span>
+              </button>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* find us on  */}
         <div className="mt-8 w-full">
